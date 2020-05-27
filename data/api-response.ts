@@ -9,7 +9,17 @@ export interface MRData {
     limit:     string;
     offset:    string;
     total:     string;
-    RaceTable: RaceTable;
+    RaceTable?: RaceTable;
+    SeasonTable?: SeasonTable;
+}
+
+export interface SeasonTable {
+    Seasons: Season[];
+}
+
+export interface Season {
+    season: string;
+    url:    string;
 }
 
 export interface RaceTable {

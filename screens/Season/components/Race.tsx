@@ -25,7 +25,7 @@ const RaceStyles = StyleSheet.create({
 export default class Race extends Component<Props> {
     render() {
         return (
-            <ListItem>
+            <ListItem key={this.props.info.name}>
                 <Text style={RaceStyles.label}>{this.props.info.name}</Text>
                 <Text style={RaceStyles.info} note>
                     {this.props.info.circuit + '\n' + this.props.info.country}

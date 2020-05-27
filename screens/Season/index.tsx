@@ -36,7 +36,7 @@ export default class Season extends Component<Props> {
 
         ApiService.season(this.props.route.params.year)
             .then((result) => {
-                result.MRData.RaceTable.Races.forEach((raceInfo) => {
+                result.MRData.RaceTable?.Races.forEach((raceInfo) => {
                     this.races.push({
                         name: raceInfo.raceName,
                         circuit: raceInfo.Circuit.circuitName,
