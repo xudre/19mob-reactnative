@@ -17,8 +17,6 @@ const SeasonsStyles = StyleSheet.create({
     },
 });
 
-const years: number[] = [];
-
 type Props = {
     onClick: (year: number) => void;
 };
