@@ -4,6 +4,7 @@ import { Button, Text } from 'native-base';
 
 import ApiService from '../../../services/Api';
 import Loading from '../../../components/Loading';
+import AppStyles from '../../../AppStyles';
 
 const SeasonsStyles = StyleSheet.create({
     view: {
@@ -13,6 +14,8 @@ const SeasonsStyles = StyleSheet.create({
         marginBottom: 10,
     },
 });
+
+const buttonStyle = StyleSheet.compose(AppStyles.button, SeasonsStyles.button);
 
 type Props = {
     onClick: (year: number) => void;
@@ -53,15 +56,14 @@ export default class Seasons extends Component<Props> {
         if (this.state.loading) {
             return (
                 <View style={ SeasonsStyles.view }>
-                    <Loading/>
-                    {/* <Text style={ SeasonsStyles.loading }>Carregando...</Text> */}
+                    <Loading />
                 </View>
             );
         }
 
         return this.state.years.map((year) => (
             <Button key={ year }
-                    style={ SeasonsStyles.button }
+                    style={ buttonStyle }
                     onPress={ () => this.props.onClick(year) }>
                 <Text>{ year }</Text>
             </Button>

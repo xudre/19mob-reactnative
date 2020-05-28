@@ -7,6 +7,7 @@ import * as Font from 'expo-font';
 
 import Home from './screens/Home/index';
 import Season from './screens/Season/index';
+import HomeHeader from './screens/Home/components/Header';
 
 export type RootStackParamList = {
     Home: undefined;
@@ -43,7 +44,11 @@ export default class App extends Component {
         return (
             <NavigationContainer>
                 <Stack.Navigator>
-                    <Stack.Screen name="Home" component={Home} />
+                    <Stack.Screen name="Home"
+                                  component={Home}
+                                  options={{
+                                      headerTitle: props => <HomeHeader {... props} />,
+                                  }} />
                     <Stack.Screen name="Season" component={Season} />
                 </Stack.Navigator>
             </NavigationContainer>
