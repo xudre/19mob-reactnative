@@ -3,14 +3,11 @@ import { View, StyleSheet } from 'react-native';
 import { Button, Text } from 'native-base';
 
 import ApiService from '../../../services/Api';
+import Loading from '../../../components/Loading';
 
 const SeasonsStyles = StyleSheet.create({
     view: {
         padding: 20,
-    },
-    loading: {
-        fontStyle: 'italic',
-        textAlign: 'center',
     },
     button: {
         marginBottom: 10,
@@ -56,7 +53,8 @@ export default class Seasons extends Component<Props> {
         if (this.state.loading) {
             return (
                 <View style={ SeasonsStyles.view }>
-                    <Text style={ SeasonsStyles.loading }>Carregando...</Text>
+                    <Loading/>
+                    {/* <Text style={ SeasonsStyles.loading }>Carregando...</Text> */}
                 </View>
             );
         }

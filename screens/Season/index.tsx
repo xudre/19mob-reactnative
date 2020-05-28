@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Text, List, Container, Content } from 'native-base';
+import { List, Container, Content } from 'native-base';
 import { RouteProp } from '@react-navigation/native';
+import Loading from '../../components/Loading';
 
 import ApiService from '../../services/Api';
 
@@ -57,7 +58,7 @@ export default class Season extends Component<Props> {
         if (this.state.loading) {
             return (
                 <View style={ SeasonsStyles.view }>
-                    <Text style={ SeasonsStyles.loading }>Carregando...</Text>
+                    <Loading/>
                 </View>
             );
         }
