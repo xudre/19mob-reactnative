@@ -15,10 +15,6 @@ const SeasonsStyles = StyleSheet.create({
     view: {
         padding: 20,
     },
-    loading: {
-        fontStyle: 'italic',
-        textAlign: 'center',
-    },
 });
 
 type Props = {
