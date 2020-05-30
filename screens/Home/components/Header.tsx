@@ -1,24 +1,18 @@
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
-import { View } from 'native-base';
+import { Platform } from 'react-native';
 import { StackHeaderTitleProps } from '@react-navigation/stack';
 
-const HeaderStyles = StyleSheet.create({
-    img: {
-        width: 120,
-        height: 30,
-        marginLeft: 'auto',
-        marginRight: 'auto'
-    },
-});
+import HomeHeaderiOS from './HeaderiOS';
+import HomeHeaderAndroid from './HeaderAndroid';
+
+const Header = Platform.select({
+    ios: () => HomeHeaderiOS,
+    android: () => HomeHeaderAndroid,
+    default: () => HomeHeaderAndroid,
+})();
 
 const HomeHeader = (props: StackHeaderTitleProps) => {
-    return (<View>
-        <Image
-            source={require('../../../assets/F1.png')}
-            style={HeaderStyles.img}
-        />
-    </View>);
+    return (<Header />);
 };
 
 export default HomeHeader;

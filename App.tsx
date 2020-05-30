@@ -8,7 +8,6 @@ import * as Font from 'expo-font';
 import Home from './screens/Home/index';
 import Season from './screens/Season/index';
 import HomeHeader from './screens/Home/components/Header';
-import { Text } from 'native-base';
 
 export type RootStackParamList = {
     Home: undefined;

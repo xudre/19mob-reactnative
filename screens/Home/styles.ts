@@ -11,4 +11,15 @@ const HomeStyles = StyleSheet.create({
     },
 });
 
+export const HomeHeaderStyles = StyleSheet.create({
+    container: {
+        backgroundColor: 'white',
+    },
+    img: {
+        height: 50,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    },
+});
+
 export default HomeStyles;
