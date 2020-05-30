@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.6",
@@ -24,10 +25,18 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
+    "@testing-library/react-native": "^5.0.3",
+    "@types/jest": "^25.2.3",
     "@types/react": "~16.9.23",
     "@types/react-native": "~0.61.17",
     "babel-preset-expo": "~8.1.0",
+    "jest": "^26.0.1",
+    "react-native-testing-library": "^2.0.0",
+    "react-test-render": "^1.1.2",
     "typescript": "~3.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
   },
   "private": true
 }

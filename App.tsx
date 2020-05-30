@@ -3,6 +3,7 @@ import { AppLoading } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import * as Font from 'expo-font';
 
 import Home from './screens/Home/index';

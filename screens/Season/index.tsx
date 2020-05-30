@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { List, Container, Content } from 'native-base';
 import { RouteProp } from '@react-navigation/native';
-import Loading from '../../components/Loading';
 
 import ApiService from '../../services/Api';
 
+import Loading from '../../components/Loading';
 import { RootStackParamList } from '../../App';
 
 import Race from './components/Race';
@@ -17,7 +17,7 @@ const SeasonsStyles = StyleSheet.create({
     },
 });
 
-type Props = {
+export type Props = {
     route: RouteProp<RootStackParamList, 'Season'>,
 };
 
