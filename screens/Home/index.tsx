@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Content, Container } from 'native-base';
+import { Content, Container, Button, Text } from 'native-base';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import { RootStackParamList } from '../../App';
@@ -13,7 +13,7 @@ type Props = {
 
 export default class Home extends Component<Props> {
     openSeason(year: number): void {
-        this.props.navigation.navigate('Season', { year });
+        this.props.navigation.navigate('SeasonOptions', { year });
     }
 
     render() {

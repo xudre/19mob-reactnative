@@ -11,8 +11,12 @@ const SeasonsStyles = StyleSheet.create({
         padding: 20,
     },
     button: {
+        backgroundColor: "#e3e3e3",
         marginBottom: 10,
     },
+    buttonText: {
+        color: "#4d4d4"
+    }
 });
 
 const buttonStyle = StyleSheet.compose(AppStyles.button, SeasonsStyles.button);
@@ -34,7 +38,9 @@ export default class Seasons extends Component<Props> {
     loadContent(): void {
         this.setState({ loading: true });
 
-        ApiService.seasons(999).then((res) => {
+        const limit = 999;
+
+        ApiService.seasons(limit).then((res) => {
             const list: number[] = [];
 
             res.MRData.SeasonTable?.Seasons.map((season) => {
@@ -44,7 +50,7 @@ export default class Seasons extends Component<Props> {
             list.sort((n1, n2) => n2 - n1);
 
             this.setState({
-                years: list.slice(0, 10)
+                years: list.slice(0, limit)
             });
         })
         .finally(() => {
@@ -65,7 +71,7 @@ export default class Seasons extends Component<Props> {
             <Button key={ year }
                     style={ buttonStyle }
                     onPress={ () => this.props.onClick(year) }>
-                <Text>{ year }</Text>
+                <Text style={SeasonsStyles.buttonText}>{ year }</Text>
             </Button>
         ));
     }

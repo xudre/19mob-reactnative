@@ -9,7 +9,6 @@ export default class HomeHeaderiOS extends Component {
             <View
                 style={{
                     ...HomeHeaderStyles.container,
-                    backgroundColor: '#3c74d7',
                 }}
             >
                 <Image

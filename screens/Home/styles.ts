@@ -16,6 +16,7 @@ export const HomeHeaderStyles = StyleSheet.create({
         backgroundColor: 'white',
     },
     img: {
+        width: 100,
         height: 50,
         marginLeft: 'auto',
         marginRight: 'auto',

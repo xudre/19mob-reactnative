@@ -30,8 +30,15 @@ export default class ApiService {
     static seasons (limit: number = 10): Promise<APIResponse> {
         return this.get('seasons', { limit });
     }
-
+    static seasonResults (year: number, round: number): Promise<APIResponse> {
+        return this.get(`${year.toString()}/${round}/results`);
+    }
     static season (year: number): Promise<APIResponse> {
         return this.get(year.toString());
     }
+
+    static drivers (year: number, limit = 10): Promise<APIResponse> {
+        return this.get(`${year}/drivers`, { limit });
+    }
+
 }

@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { List, Container, Content } from 'native-base';
 import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
+import { RootStackParamList } from '../../App';
+
+import { Race } from '../../data/api-response';
 import ApiService from '../../services/Api';
 
 import Loading from '../../components/Loading';
-import { RootStackParamList } from '../../App';
-
-import Race from './components/Race';
-import { RaceInfo } from './components/Race';
+import RaceItem from './components/RaceItem';
 
 const SeasonsStyles = StyleSheet.create({
     view: {
@@ -19,28 +20,27 @@ const SeasonsStyles = StyleSheet.create({
 
 export type Props = {
     route: RouteProp<RootStackParamList, 'Season'>,
+    navigation: StackNavigationProp<RootStackParamList, 'RaceDetail'>;
 };
 
 export default class Season extends Component<Props> {
-    races: RaceInfo[] = [];
+    races: Race[] = [];
 
     state = {
         loading: false,
     };
+
+    openRace(year: number, round: number): void {
+        this.props.navigation.navigate('RaceDetail', { year, round });
+    }
 
     componentDidMount(): void {
         this.setState({ loading: true });
 
         ApiService.season(this.props.route.params.year)
             .then((result) => {
-                result.MRData.RaceTable?.Races.forEach((raceInfo) => {
-                    this.races.push({
-                        name: raceInfo.raceName,
-                        circuit: raceInfo.Circuit.circuitName,
-                        date: raceInfo.date,
-                        local: raceInfo.Circuit.Location.locality,
-                        country: raceInfo.Circuit.Location.country,
-                    });
+                result.MRData.RaceTable?.Races?.forEach((raceInfo) => {
+                    this.races.push(raceInfo);
                 });
 
                 this.setState({ loading: false });
@@ -60,11 +60,13 @@ export default class Season extends Component<Props> {
         }
 
         return (
-            <Container style={ SeasonsStyles.view }>
+            <Container>
                 <Content>
                     <List>
-                        {this.races.map((info) => (
-                            <Race info={info} />
+                        {this.races.map((race: Race) => (
+                            <RaceItem key={race.round}
+                                      race={race}
+                                      onPress={ (info) => this.openRace(+race.season, +race.round) } />
                         ))}
                     </List>
                 </Content>

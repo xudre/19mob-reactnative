@@ -9,7 +9,6 @@ export default class HomeHeaderAndroid extends Component {
             <View
                 style={{
                     ...HomeHeaderStyles.container,
-                    backgroundColor: '#93bb3a',
                 }}
             >
                 <Image
